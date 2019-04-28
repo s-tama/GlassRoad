@@ -49,5 +49,6 @@ namespace MyLibrary
 	private:
 
 		static std::vector<GameObject*> m_pObjects;		// ゲームオブジェクト配列
+		static std::vector<GameObject*> m_pRequestedRemoveObjects;	// 破棄予定のオブジェクト配列
 	};
 }

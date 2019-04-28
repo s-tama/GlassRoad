@@ -25,7 +25,6 @@ using namespace MyLibrary;
 BoxCollider2D::BoxCollider2D(GameObject* pGameObject):
 	Collider2D(pGameObject)
 {
-	CollisionManager::AddCollider(this);
 }
 
 /// <summary>

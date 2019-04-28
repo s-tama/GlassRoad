@@ -13,9 +13,6 @@
     <Filter Include="Game\GameWorld">
       <UniqueIdentifier>{7b554eb8-499a-49f6-8fb7-811b00b90cf9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\GameWorld\Camera">
-      <UniqueIdentifier>{deca6e06-3700-449b-9feb-bc05046cb32c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Game\Shaders">
       <UniqueIdentifier>{f8610995-807d-4b06-b5b8-c982e292bb0a}</UniqueIdentifier>
     </Filter>
@@ -28,8 +25,17 @@
     <Filter Include="Game\Utility">
       <UniqueIdentifier>{76cea008-4934-4844-bebc-1720847c2834}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\Behaviours">
-      <UniqueIdentifier>{7572462a-4f6d-49b8-9d4a-fbf3acaa1314}</UniqueIdentifier>
+    <Filter Include="Game\GameWorld\StageManager">
+      <UniqueIdentifier>{58d300c5-184c-428e-be22-dbe4473629ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Shaders\Stage">
+      <UniqueIdentifier>{ed01fe10-7d44-423f-924a-535985f80fcf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\GameWorld\Stage">
+      <UniqueIdentifier>{b78bba6e-1fd6-4130-ab44-00494025682c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\GameWorld\Camera">
+      <UniqueIdentifier>{608a9c3d-9602-4849-98f2-0ea983c54c14}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -40,17 +46,26 @@
     <ClCompile Include="Game\Scenes\SampleScene.cpp">
       <Filter>Game\Scenes</Filter>
     </ClCompile>
-    <ClCompile Include="Game\GameWorld\MainCamera.cpp">
+    <ClCompile Include="Game\GameWorld\Player\Player.cpp">
+      <Filter>Game\GameWorld\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\GameWorld\Player\PlayerMesh.cpp">
+      <Filter>Game\GameWorld\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\GameWorld\Player\PlayerController.cpp">
+      <Filter>Game\GameWorld\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\GameWorld\Stage\StageChip.cpp">
+      <Filter>Game\GameWorld\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\GameWorld\Stage\StageManager.cpp">
+      <Filter>Game\GameWorld\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\GameWorld\Stage\StageMesh.cpp">
+      <Filter>Game\GameWorld\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\GameWorld\Camera\FollowingCamera.cpp">
       <Filter>Game\GameWorld\Camera</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\GameWorld\Player.cpp">
-      <Filter>Game\GameWorld\Player</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\GameWorld\PlayerMesh.cpp">
-      <Filter>Game\GameWorld\Player</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Behaviours\PlayerBehaviour.cpp">
-      <Filter>Game\Behaviours</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -60,20 +75,29 @@
     <ClInclude Include="Game\Scenes\SampleScene.h">
       <Filter>Game\Scenes</Filter>
     </ClInclude>
-    <ClInclude Include="Game\GameWorld\MainCamera.h">
-      <Filter>Game\GameWorld\Camera</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\GameWorld\Player.h">
-      <Filter>Game\GameWorld\Player</Filter>
-    </ClInclude>
     <ClInclude Include="Game\Utility\Mediator.h">
       <Filter>Game\Utility</Filter>
     </ClInclude>
-    <ClInclude Include="Game\GameWorld\PlayerMesh.h">
+    <ClInclude Include="Game\GameWorld\Player\Player.h">
       <Filter>Game\GameWorld\Player</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Behaviours\PlayerBehaviour.h">
-      <Filter>Game\Behaviours</Filter>
+    <ClInclude Include="Game\GameWorld\Player\PlayerMesh.h">
+      <Filter>Game\GameWorld\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameWorld\Player\PlayerController.h">
+      <Filter>Game\GameWorld\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameWorld\Stage\StageChip.h">
+      <Filter>Game\GameWorld\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameWorld\Stage\StageManager.h">
+      <Filter>Game\GameWorld\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameWorld\Stage\StageMesh.h">
+      <Filter>Game\GameWorld\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameWorld\Camera\FollowingCamera.h">
+      <Filter>Game\GameWorld\Camera</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -91,6 +115,9 @@
     <None Include="Game\Shader\Player.hlsli">
       <Filter>Game\Shaders\Player</Filter>
     </None>
+    <None Include="Game\Shader\Stage.hlsli">
+      <Filter>Game\Shaders\Stage</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Game\Shader\PlayerVS.hlsl">
@@ -101,6 +128,12 @@
     </FxCompile>
     <FxCompile Include="Game\Shader\PlayerGS.hlsl">
       <Filter>Game\Shaders\Player</Filter>
+    </FxCompile>
+    <FxCompile Include="Game\Shader\StageVS.hlsl">
+      <Filter>Game\Shaders\Stage</Filter>
+    </FxCompile>
+    <FxCompile Include="Game\Shader\StagePS.hlsl">
+      <Filter>Game\Shaders\Stage</Filter>
     </FxCompile>
   </ItemGroup>
 </Project>

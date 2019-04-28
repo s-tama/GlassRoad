@@ -8,6 +8,7 @@
 
 // ヘッダーファイルのインクルード --------------------------------------------------
 #include <vector>
+#include <memory>
 
 
 // クラスの定義 --------------------------------------------------------------------
@@ -15,8 +16,6 @@ namespace MyLibrary
 {
 	class Collider;
 	class Collider2D;
-	class BoxCollider2D;
-	class CircleCollider;
 
 	/// <summary>
 	/// 当たり判定管理クラス
@@ -25,13 +24,13 @@ namespace MyLibrary
 	{
 	public:
 
-		// コンストラクタ
-		CollisionManager();
+		static CollisionManager* GetInstance();
 
 		// 当たり判定を行うコライダを追加する
-		static void AddCollider(CircleCollider* pCollider);
-		static void AddCollider(BoxCollider2D* pCollider);
-		static void RemoveCollider(Collider2D* pCollider);
+		void AddCollider(Collider* pCollider);
+		void RemoveCollider(Collider* pCollider);
+
+		void Reset();
 
 		// 更新
 		void Update();
@@ -39,7 +38,13 @@ namespace MyLibrary
 
 	private:
 
-		static std::vector<CircleCollider*> m_pCircleColliders;
-		static std::vector<BoxCollider2D*> m_pBoxColliders2D;
+		CollisionManager();
+
+
+	private:
+
+		static std::unique_ptr<CollisionManager> m_pInstance;
+
+		std::vector<Collider*> m_pColliders;
 	};
 }

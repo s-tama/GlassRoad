@@ -30,6 +30,10 @@ namespace MyLibrary
 			m_radius = radius;
 		}
 
+		// 他のコライダとの当たり判定
+		bool OnCollisionToSphere(Collider* pSphere) override;
+		bool OnCollisionToBox(Collider* pBox) override;
+
 
 	private:
 

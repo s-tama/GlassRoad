@@ -78,6 +78,26 @@
     <ClInclude Include="Component\Component.h" />
     <ClInclude Include="Component\SphereCollider.h" />
     <ClInclude Include="Component\Transform.h" />
+    <ClInclude Include="DirectXTK\Inc\Audio.h" />
+    <ClInclude Include="DirectXTK\Inc\CommonStates.h" />
+    <ClInclude Include="DirectXTK\Inc\DDSTextureLoader.h" />
+    <ClInclude Include="DirectXTK\Inc\DirectXHelpers.h" />
+    <ClInclude Include="DirectXTK\Inc\Effects.h" />
+    <ClInclude Include="DirectXTK\Inc\GamePad.h" />
+    <ClInclude Include="DirectXTK\Inc\GeometricPrimitive.h" />
+    <ClInclude Include="DirectXTK\Inc\GraphicsMemory.h" />
+    <ClInclude Include="DirectXTK\Inc\Keyboard.h" />
+    <ClInclude Include="DirectXTK\Inc\Model.h" />
+    <ClInclude Include="DirectXTK\Inc\Mouse.h" />
+    <ClInclude Include="DirectXTK\Inc\PostProcess.h" />
+    <ClInclude Include="DirectXTK\Inc\PrimitiveBatch.h" />
+    <ClInclude Include="DirectXTK\Inc\ScreenGrab.h" />
+    <ClInclude Include="DirectXTK\Inc\SimpleMath.h" />
+    <ClInclude Include="DirectXTK\Inc\SpriteBatch.h" />
+    <ClInclude Include="DirectXTK\Inc\SpriteFont.h" />
+    <ClInclude Include="DirectXTK\Inc\VertexTypes.h" />
+    <ClInclude Include="DirectXTK\Inc\WICTextureLoader.h" />
+    <ClInclude Include="DirectXTK\Inc\XboxDDSTextureLoader.h" />
     <ClInclude Include="Framework\Framework.h" />
     <ClInclude Include="Math\Math.h" />
     <ClInclude Include="MyLibrary.h" />
@@ -208,6 +228,9 @@
     </ClCompile>
     <ClCompile Include="Utility\FPSCounter.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="DirectXTK\Inc\SimpleMath.inl" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{B35F3123-BA33-4885-A3BF-8174888E3763}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
@@ -260,8 +283,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>C:\DirectXTK\Inc;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\DirectXTK\Bin\Desktop_2015\Win32\Debug;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(ProjectDir)\DirectXTK\Inc;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)\DirectXTK\Bin\Desktop_2015\Win32\Debug;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

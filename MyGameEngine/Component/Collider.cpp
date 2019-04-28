@@ -7,6 +7,9 @@
 #include "..\Object\GameObject.h"
 #include "..\Collision\CollisionManager.h"
 
+#include "BoxCollider.h"
+#include "SphereCollider.h"
+
 using namespace MyLibrary;
 
 /// <summary>

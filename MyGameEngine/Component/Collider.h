@@ -7,6 +7,9 @@
 
 namespace MyLibrary
 {
+	class BoxCollider;
+	class SphereCollider;
+
 	/// <summary>
 	/// コライダークラス
 	/// </summary>
@@ -16,5 +19,9 @@ namespace MyLibrary
 
 		Collider(GameObject* pGameObject);
 		virtual ~Collider();
+
+		// 他のコライダとの当たり判定
+		virtual bool OnCollisionToSphere(Collider* pSphere) = 0;
+		virtual bool OnCollisionToBox(Collider* pBox) = 0;
 	};
 }

@@ -39,9 +39,9 @@ namespace MyLibrary
 		virtual void LateUpdate();
 
 		// 当たった時の処理
-		virtual void OnCollisionStay(GameObject* collider){}
-		virtual void OnCollisionEnter(Collider* collider){}
-		virtual void OnCollisionExit(Collider* collision){}
+		virtual void OnCollisionStay(Collider* pOther);
+		virtual void OnCollisionEnter(Collider* pOther){}
+		virtual void OnCollisionExit(Collider* pOther){}
 
 		// 変換情報(読み取り専用)
 		Transform* GetTransform() const { return m_pTransform; }
@@ -55,6 +55,7 @@ namespace MyLibrary
 		T* AddComponent()
 		{
 			Component* component = new T(this);
+			component->Start();
 			m_pComponents.push_back(component);
 			return dynamic_cast<T*>(component);
 		}

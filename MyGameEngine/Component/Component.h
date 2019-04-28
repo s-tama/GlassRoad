@@ -25,6 +25,7 @@ namespace MyLibrary
 {
 	class GameObject;
 	class Transform;
+	class Collider;
 }
 
 
@@ -49,6 +50,11 @@ namespace MyLibrary
 		// 更新
 		virtual void Update(){}
 		virtual void LateUpdate(){}
+
+		// 当たった時の処理
+		virtual void OnCollisionStay(Collider* pOther) {}
+		virtual void OnCollisionEnter(Collider* pOther) {}
+		virtual void OnCollisionExit(Collider* pOther) {}
 
 		// プロパティ
 		GameObject* GetGameObject() { return m_pGameObject; }

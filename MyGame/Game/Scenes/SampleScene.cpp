@@ -7,8 +7,8 @@
 // ヘッダーファイルのインクルード --------------------------------------------------------
 #include "SampleScene.h"
 
-#include "..\GameWorld\MainCamera.h"
-#include "..\GameWorld\Player.h"
+#include "..\GameWorld\Player\Player.h"
+#include "..\GameWorld\Camera\FollowingCamera.h"
 
 
 
@@ -26,6 +26,17 @@ using namespace DirectX::SimpleMath;
 /// </summary>
 SampleScene::SampleScene()
 {
-	MainCamera* pMainCamera = new MainCamera();
-	Player* pPlayer = new Player();
+	// カメラの作成
+	GameObject* pCamera = new GameObject();
+	pCamera->SetTag("MainCamera");
+	pCamera->GetTransform()->SetPosition(0, 3, -5);
+	pCamera->AddComponent<Camera>();
+	
+	// プレイヤーの作成
+	GameObject* pPlayer = new GameObject();
+	pPlayer->SetTag("Player");
+	pPlayer->GetTransform()->SetPosition(0, 5, 0);
+	pPlayer->AddComponent<Player>();
+
+	//pCamera->AddComponent<FollowingCamera>()->SetTarget(pPlayer->GetTransform());
 }

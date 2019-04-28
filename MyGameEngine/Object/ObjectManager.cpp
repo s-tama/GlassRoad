@@ -18,6 +18,7 @@ using namespace DirectX::SimpleMath;
 
 // 静的メンバ変数の実態 -------------------------------------------------------------------
 std::vector<GameObject*> ObjectManager::m_pObjects;
+std::vector<GameObject*> ObjectManager::m_pRequestedRemoveObjects;
 
 
 // メンバ関数の定義 ------------------------------------------------------------------------
@@ -47,7 +48,7 @@ ObjectManager::~ObjectManager()
 /// <param name="pGameObject"></param>
 void ObjectManager::Add(GameObject* pGameObject)
 {
-	pGameObject->Initialize();
+	//pGameObject->Initialize();
 	m_pObjects.push_back(pGameObject);
 }
 
@@ -103,10 +104,10 @@ std::vector<GameObject*> ObjectManager::GetGameObjects()
 /// </summary>
 void ObjectManager::Initialize()
 {
-	for (auto& obj : m_pObjects)
+	/*for (auto& obj : m_pObjects)
 	{
 		obj->Initialize();
-	}
+	}*/
 }
 
 /// <summary>
@@ -115,6 +116,7 @@ void ObjectManager::Initialize()
 /// <param name="elapsedTime"></param>
 void ObjectManager::Update()
 {
+
 	// オブジェクトを更新する
 	for (auto& obj : m_pObjects)
 	{

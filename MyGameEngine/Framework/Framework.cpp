@@ -14,6 +14,7 @@
 #include "../2D/SpriteRenderer.h"
 #include "../3D/PrimitiveRenderer.h"
 #include "..\3D\MeshRenderer.h"
+#include "..\Collision\CollisionManager.h"
 
 
 
@@ -335,6 +336,7 @@ void Framework::CreateDeviceDependentResources()
 	PrimitiveRenderer::GetInstance()->Initialize(pDevice, pContext);
 	// メッシュレンダラーの初期化
 	MeshRenderer::GetInstance()->Initialize(pDevice, pContext);
+
 }
 
 /// <summary>

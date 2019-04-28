@@ -152,6 +152,66 @@
     <ClInclude Include="3D\Rigidbody.h">
       <Filter>3D</Filter>
     </ClInclude>
+    <ClInclude Include="DirectXTK\Inc\Audio.h">
+      <Filter>DirectXTK\Inc</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectXTK\Inc\CommonStates.h">
+      <Filter>DirectXTK\Inc</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectXTK\Inc\DDSTextureLoader.h">
+      <Filter>DirectXTK\Inc</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectXTK\Inc\DirectXHelpers.h">
+      <Filter>DirectXTK\Inc</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectXTK\Inc\Effects.h">
+      <Filter>DirectXTK\Inc</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectXTK\Inc\GamePad.h">
+      <Filter>DirectXTK\Inc</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectXTK\Inc\GeometricPrimitive.h">
+      <Filter>DirectXTK\Inc</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectXTK\Inc\GraphicsMemory.h">
+      <Filter>DirectXTK\Inc</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectXTK\Inc\Keyboard.h">
+      <Filter>DirectXTK\Inc</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectXTK\Inc\Model.h">
+      <Filter>DirectXTK\Inc</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectXTK\Inc\Mouse.h">
+      <Filter>DirectXTK\Inc</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectXTK\Inc\PostProcess.h">
+      <Filter>DirectXTK\Inc</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectXTK\Inc\PrimitiveBatch.h">
+      <Filter>DirectXTK\Inc</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectXTK\Inc\ScreenGrab.h">
+      <Filter>DirectXTK\Inc</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectXTK\Inc\SimpleMath.h">
+      <Filter>DirectXTK\Inc</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectXTK\Inc\SpriteBatch.h">
+      <Filter>DirectXTK\Inc</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectXTK\Inc\SpriteFont.h">
+      <Filter>DirectXTK\Inc</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectXTK\Inc\VertexTypes.h">
+      <Filter>DirectXTK\Inc</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectXTK\Inc\WICTextureLoader.h">
+      <Filter>DirectXTK\Inc</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectXTK\Inc\XboxDDSTextureLoader.h">
+      <Filter>DirectXTK\Inc</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Common">
@@ -192,6 +252,12 @@
     </Filter>
     <Filter Include="UI">
       <UniqueIdentifier>{76fa74d6-4286-4696-ad1c-712f8daef9a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DirectXTK">
+      <UniqueIdentifier>{66adfee2-e50b-4f26-aabc-43a63f0e8a5f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DirectXTK\Inc">
+      <UniqueIdentifier>{ed6e42e2-d0f6-4977-ab31-1fb692d07141}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -312,5 +378,10 @@
     <ClCompile Include="3D\Rigidbody.cpp">
       <Filter>3D</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DirectXTK\Inc\SimpleMath.inl">
+      <Filter>DirectXTK\Inc</Filter>
+    </None>
   </ItemGroup>
 </Project>

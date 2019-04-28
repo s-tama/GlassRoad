@@ -30,6 +30,10 @@ namespace MyLibrary
 			m_extents = extents;
 		}
 
+		// 他のコライダとの当たり判定
+		bool OnCollisionToSphere(Collider* pOther) override;
+		bool OnCollisionToBox(Collider* pOther) override;
+
 
 	private:
 

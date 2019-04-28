@@ -84,6 +84,18 @@ void GameObject::LateUpdate()
 }
 
 /// <summary>
+/// 他のオブジェクトに当たっている間
+/// </summary>
+/// <param name="pOther"></param>
+void GameObject::OnCollisionStay(Collider* pOther)
+{
+	for (const auto& component : m_pComponents)
+	{
+		component->OnCollisionStay(pOther);
+	}
+}
+
+/// <summary>
 /// コンポーネントを開放する
 /// </summary>
 /// <param name="pComponent">削除するコンポーネント</param>

@@ -1,9 +1,10 @@
 ﻿//
-// PlayerMesh.cpp
+// StageMesh.h
 // Actor: Tamamura Shuuki
+// Date: 2019/04.13(日)
 //
 
-#include "PlayerMesh.h"
+#include "StageMesh.h"
 
 using namespace DirectX;
 using namespace DirectX::SimpleMath;
@@ -13,22 +14,21 @@ using namespace MyLibrary;
 /// <summary>
 /// コンストラクタ
 /// </summary>
-/// <param name="pGameObject">このコンポーネントを所持しているゲームオブジェクト</param>
-PlayerMesh::PlayerMesh(GameObject* pGameObject):
+/// <param name="pGameObject"></param>
+StageMesh::StageMesh(MyLibrary::GameObject* pGameObject):
 	Mesh(pGameObject),
 	m_pConstBuffer0(nullptr),
 	m_pConstBuffer1(nullptr),
 	m_pConstBuffer2(nullptr),
 	m_pProperty(nullptr),
-	m_pCommonStates(nullptr),
-	m_destruction(0)
+	m_pCommonStates(nullptr)
 {
 }
 
 /// <summary>
 /// デストラクタ
 /// </summary>
-PlayerMesh::~PlayerMesh()
+StageMesh::~StageMesh()
 {
 	SAFE_RELEASE(m_pConstBuffer0);
 	SAFE_RELEASE(m_pConstBuffer1);
@@ -39,7 +39,7 @@ PlayerMesh::~PlayerMesh()
 /// <summary>
 /// 作成
 /// </summary>
-void PlayerMesh::Create()
+void StageMesh::Create()
 {
 	DeviceResources* pDeviceResources = DeviceResources::GetInstance();
 	auto device = pDeviceResources->GetD3DDevice();
@@ -47,7 +47,7 @@ void PlayerMesh::Create()
 	HRESULT hr;
 
 	// シェーダーを作成
-	hr = CreateShaderFromCSO(L"Resources\\Shaders\\PlayerVS.cso", L"Resources\\Shaders\\PlayerGS.cso", L"Resources\\Shaders\\PlayerPS.cso");
+	hr = CreateShaderFromCSO(L"Resources\\Shaders\\StageVS.cso", L"Resources\\Shaders\\StagePS.cso");
 	if (FAILED(hr))
 	{
 		MessageBox(0, L"シェーダーの作成に失敗しました。", NULL, MB_OK);
@@ -55,7 +55,7 @@ void PlayerMesh::Create()
 	}
 
 	// メッシュを作成
-	hr = CreateMeshFromOBJ(L"Resources\\Models\\Sphere.obj");
+	hr = CreateMeshFromOBJ(L"Resources\\Models\\Box.obj");
 	if (FAILED(hr))
 	{
 		MessageBox(0, L"メッシュの作成に失敗しました。", NULL, MB_OK);
@@ -94,7 +94,7 @@ void PlayerMesh::Create()
 /// <summary>
 /// 描画
 /// </summary>
-void PlayerMesh::Draw()
+void StageMesh::Draw()
 {
 	DeviceResources* pDeviceResources = DeviceResources::GetInstance();
 	auto context = pDeviceResources->GetD3DDeviceContext();
@@ -138,12 +138,10 @@ void PlayerMesh::Draw()
 	cb2.cosTime = cos(time);
 	context->UpdateSubresource(m_pConstBuffer2, 0, NULL, &cb2, 0, 0);
 	// バッファ3(プロパティ)
-	m_callOnDestruction();
 	Property cb3;
-	cb3.destruction = m_destruction;
 	context->UpdateSubresource(m_pProperty, 0, NULL, &cb3, 0, 0);
 
-	//使用するシェーダーの登録
+	// 使用するシェーダーの登録
 	context->VSSetShader(m_pVertexShader, NULL, 0);
 	context->PSSetShader(m_pPixelShader, NULL, 0);
 	context->GSSetShader(m_pGeometryShader, NULL, 0);
@@ -175,19 +173,4 @@ void PlayerMesh::Draw()
 
 	// プリミティブをレンダリング
 	context->Draw(m_vertexCount, 0);
-}
-
-/// <summary>
-/// 破壊処理を呼び出す
-/// </summary>
-void PlayerMesh::CallOnDestruction()
-{
-	m_callOnDestruction = ([=]{
-		m_destruction += Time::GetInstance()->GetElapsedTime()*3;
-
-		if (m_destruction >= 1)
-		{
-			m_destruction = 1;
-		}
-	});
 }

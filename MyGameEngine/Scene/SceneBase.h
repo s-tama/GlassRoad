@@ -38,6 +38,5 @@ namespace MyLibrary
 		std::string m_name;		// シーン名
 
 		ObjectManager* m_pObjectManager;
-		CollisionManager* m_pCollisionManager;
 	};
 }

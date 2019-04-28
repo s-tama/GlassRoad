@@ -45,7 +45,6 @@ void SceneBase::Initialize()
 {
 	m_pObjectManager = new ObjectManager();
 	m_pObjectManager->Initialize();
-	m_pCollisionManager = new CollisionManager();
 }
 
 /// <summary>
@@ -54,7 +53,7 @@ void SceneBase::Initialize()
 void SceneBase::Update()
 {
 	m_pObjectManager->Update();
-	m_pCollisionManager->Update();
+	CollisionManager::GetInstance()->Update();
 }
 
 /// <summary>
@@ -82,7 +81,7 @@ void SceneBase::Finalize()
 {
 	MeshRenderer::GetInstance()->Reset();
 	SpriteRenderer::GetInstance()->Reset();
+	CollisionManager::GetInstance()->Reset();
 
-	SAFE_DELETE(m_pCollisionManager);
 	SAFE_DELETE(m_pObjectManager);
 }

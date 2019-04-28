@@ -25,7 +25,6 @@ using namespace MyLibrary;
 CircleCollider::CircleCollider(GameObject* pGameObject) :
 	Collider2D(pGameObject)
 {
-	CollisionManager::AddCollider(this);
 }
 
 /// <summary>
@@ -57,13 +56,4 @@ void  CircleCollider::OnCollisionToBox(BoxCollider2D* pOther)
 /// <param name="pCircleCollider"></param>
 void CircleCollider::OnCollisionToCircle(CircleCollider* pOther)
 {
-	float dx = m_center.x - pOther->GetCenter().x;
-	float dy = m_center.y - pOther->GetCenter().y;
-	float d = m_radius + pOther->GetRadius();
-
-	bool isHit = ((dx*dx) + (dy*dy) <= d*d);
-	if (isHit)
-	{
-		m_pGameObject->OnCollisionStay(pOther->GetGameObject());
-	}
 }

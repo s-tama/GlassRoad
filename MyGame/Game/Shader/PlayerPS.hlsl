@@ -28,5 +28,13 @@ float4 RimLighting(PS_INPUT i, float4 v)
 
 float4 main(PS_INPUT i) : SV_TARGET
 {
-	return Ice(i) * COLOR_LIGHT_BLUE;
+	float4 col = float4(0, 1, 2, 1);
+	float light = max(0, dot(i.lightDir, i.normal));
+	col.rgb *= light;
+
+	float4 rimColor = float4(0, 0, 1, 1);
+	float rim = 1 - saturate(dot(i.viewDir, i.normal));
+	float4 emission = rimColor * rim;
+
+	return col + emission;
 }
